@@ -29,6 +29,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name="si.inova.zimskasola.LoginActivity">
+        </activity>
         <activity android:name="si.inova.zimskasola.MainActivity">
         </activity>
 
