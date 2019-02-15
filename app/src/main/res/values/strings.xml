@@ -6,4 +6,5 @@
     <string name="login_sub">Za uporabo aplikacije se moraš prijaviti.</string>
     <string name="login_google">Prijavi se</string>
     <string name="login_error">Prijava ni uspela, poskusi ponovno.</string>
+    <string name="web_client_id">329347550650-j5fl321svlcfkhleu2sor4rkcbeu1k82.apps.googleusercontent.com</string>
 </resources>
