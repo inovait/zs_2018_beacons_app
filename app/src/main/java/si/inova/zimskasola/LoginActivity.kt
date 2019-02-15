@@ -11,7 +11,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.common.api.ApiException
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
@@ -63,6 +62,11 @@ class LoginActivity : AppCompatActivity() {
 
     private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
         Log.d(TAG, "firebaseAuthWithGoogle:" + acct.id!!)
+        textViewHeader.visibility = View.GONE
+        textViewSub.visibility = View.GONE
+        btnGoogleLogin.visibility = View.GONE
+        textViewLoginError.visibility = View.GONE
+        loginProgress.visibility = View.VISIBLE
         val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
@@ -72,9 +76,9 @@ class LoginActivity : AppCompatActivity() {
                     updateUI(user)
                 } else {
                     Log.e(TAG, "signInWithCredential:failure", task.exception)
-                    Snackbar.make(main_layout, "Authentication Failed.", Snackbar.LENGTH_SHORT).show()
                     updateUI(null)
                 }
+                loginProgress.visibility = View.GONE
             }
     }
 
@@ -84,10 +88,15 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun updateUI(user: FirebaseUser?) {
+        loginProgress.visibility = View.GONE
         if (user != null) {
             val intent = Intent(applicationContext, MainActivity::class.java)
             startActivity(intent)
         } else {
+            textViewHeader.visibility = View.VISIBLE
+            textViewSub.visibility = View.VISIBLE
+            btnGoogleLogin.visibility = View.VISIBLE
+            loginProgress.visibility = View.VISIBLE
             textViewLoginError.visibility = View.VISIBLE
         }
     }
