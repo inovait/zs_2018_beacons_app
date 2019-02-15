@@ -16,15 +16,22 @@
 
         <meta-data
             android:name="com.google.android.nearby.messages.API_KEY"
-            android:value="AIzaSyA2G1NIRXDvoXi6_S8a7UL0f120p1nVtdc" />
+            android:value="AIzaSyDBTqeNLCNyuLmtKTYZ9uCHY8n1_RayD3I" />
 
-        <activity android:name="si.inova.zimskasola.MainActivity">
+        <activity
+                android:name="si.inova.zimskasola.SplashActivity"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name="si.inova.zimskasola.MainActivity">
+        </activity>
+
 
     </application>
 
