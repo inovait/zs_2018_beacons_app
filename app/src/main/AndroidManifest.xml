@@ -3,7 +3,10 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="com.example.zimskasola">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
 
     <application
         android:allowBackup="false"
@@ -19,21 +22,20 @@
             android:value="AIzaSyDBTqeNLCNyuLmtKTYZ9uCHY8n1_RayD3I" />
 
         <activity
-                android:name="si.inova.zimskasola.SplashActivity"
+                android:name="si.inova.zimskasola.ActivitySplash"
                 android:configChanges="orientation|keyboardHidden|screenSize"
                 android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity android:name="si.inova.zimskasola.LoginActivity">
-        </activity>
-        <activity android:name="si.inova.zimskasola.MainActivity">
+        <activity android:name="si.inova.zimskasola.ActivityLogin">
         </activity>
 
+        <activity android:name="si.inova.zimskasola.ActivityMain">
+        </activity>
 
     </application>
 

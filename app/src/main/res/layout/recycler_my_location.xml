@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <ImageView
+                android:src="@drawable/moja_lokacija_privzeta_slika"
+                android:id="@+id/recycler_img"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="@dimen/viewHeightListImage"
+                android:layout_width="@dimen/viewHeightListImage"/>
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:id="@+id/recycler_tv_top"
+                android:layout_marginEnd="85dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="4dp"
+                app:layout_constraintBottom_toTopOf="@+id/recycler_tv_mid"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/recycler_img" android:textColor="@color/colorPrimaryDark"
+                android:fontFamily="@font/montserrat_bold"/>
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:id="@+id/recycler_tv_mid"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="4dp"
+                app:layout_constraintEnd_toStartOf="@+id/recycler_img"
+                app:layout_constraintBottom_toTopOf="@+id/recycler_tv_bot"
+                app:layout_constraintStart_toStartOf="parent" android:textColor="@color/colorPrimaryDark"
+                android:fontFamily="@font/merriweather_regular"/>
+
+        <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/txtListBot"
+                android:id="@+id/recycler_tv_bot"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="16dp"
+                app:layout_constraintEnd_toStartOf="@+id/recycler_img"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" android:textColor="@color/colorPrimaryDark"
+                android:fontFamily="@font/montserrat_regular"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
