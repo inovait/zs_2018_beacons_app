@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@color/colorPrimary">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                android:id="@+id/linearLayout3">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                <ImageView
+                        android:src="@drawable/moja_lokacija_privzeta_slika"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView" app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="16dp" android:layout_marginTop="16dp"
+                        app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent" android:visibility="visible" android:alpha="0"/>
+
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:id="@+id/textViewNahajasSe"
+                        android:textColor="@color/colorPrimaryDark"
+                        app:layout_constraintBottom_toTopOf="@+id/tvImeLokacije"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:textAllCaps="true"
+                        android:text="@string/my_location_currently_in" android:layout_marginEnd="24dp"
+                        app:layout_constraintEnd_toStartOf="@+id/imageView" android:layout_marginStart="16dp"
+                        android:layout_marginBottom="8dp" android:visibility="visible" android:alpha="0"/>
+
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:id="@+id/tvImeLokacije"
+                        android:textColor="@color/colorPrimaryDark"
+                        app:layout_constraintBottom_toTopOf="@+id/tvNadstropje"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:fontFamily="@font/merriweather_bolditalic" android:textSize="28sp"
+                        android:text="@string/my_location_location_name" android:layout_marginEnd="24dp"
+                        android:layout_marginStart="16dp" android:layout_marginBottom="8dp"
+                        app:layout_constraintEnd_toStartOf="@+id/imageView" android:visibility="visible"
+                        android:alpha="0"/>
+
+                <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:id="@+id/tvNadstropje"
+                        android:textColor="@color/colorPrimaryDark"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:fontFamily="@font/montserrat_regular" android:textSize="14sp"
+                        android:text="@string/my_location_floor" android:layout_marginEnd="24dp"
+                        app:layout_constraintEnd_toStartOf="@+id/imageView" android:layout_marginBottom="16dp"
+                        android:layout_marginStart="16dp" android:visibility="visible" android:alpha="0"/>
+                <View
+                        android:id="@+id/divider7"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/mainDivider"
+                        app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
+                        android:layout_marginStart="16dp" android:alpha="0"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="0dp"
+                android:id="@+id/recyclerView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3" android:alpha="0"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:id="@+id/clLoading"
+            android:background="@color/loadingBackground" android:visibility="visible">
+
+        <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/progressBar"
+                android:indeterminateTint="@color/colorPrimaryDark"
+                android:indeterminateTintMode="src_in"
+                android:indeterminate="true"
+                android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

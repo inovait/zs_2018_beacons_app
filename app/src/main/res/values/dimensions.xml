@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="viewHeightTextTop">14dp</dimen>
+    <dimen name="viewHeightTextMid">28dp</dimen>
+    <dimen name="viewHeightTextBot">14dp</dimen>
+
+    <dimen name="viewHeightListTop">12dp</dimen>
+    <dimen name="viewHeightListMid">22dp</dimen>
+    <dimen name="viewHeightListBot">14dp</dimen>
+    <dimen name="viewHeightListImage">25dp</dimen>
+
+    <dimen name="txtListTop">12sp</dimen>
+    <dimen name="txtListMid">22sp</dimen>
+    <dimen name="txtListBot">14sp</dimen>
+</resources>

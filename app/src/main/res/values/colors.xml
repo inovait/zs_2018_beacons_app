@@ -5,5 +5,20 @@
     <color name="colorAccent">#FF000D</color>
     <color name="text_color">#ffffffff</color>
     <color name="window_background">#ff000000</color>
-    <color name="colorError">#d0021b</color>
+    <color name="colorSecondaryDark">#66000000</color>
+    <color name="colorTransparent">#00FFFFFF</color>
+
+    <color name="mainDivider">#E5E5E5</color>
+    <color name="colorError">#D0021B</color>
+    <color name="shimmerBackground">#CCCCCC</color>
+    <color name="loadingBackground">#DAFFFFFF</color>
+
+    <color name="weekPonedeljek">#F44336</color>
+    <color name="weekTorek">#E91E63</color>
+    <color name="weekSreda">#9C27B0</color>
+    <color name="weekCetrtek">#673AB7</color>
+    <color name="weekPetek">#3F51B5</color>
+    <color name="weekSobota">#03A9F4</color>
+    <color name="weekNedelja">#00BCD4</color>
+
 </resources>

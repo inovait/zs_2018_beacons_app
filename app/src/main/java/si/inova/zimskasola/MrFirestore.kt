@@ -1,3 +1,5 @@
+// ta razred je v tem trenutku neuporaben, saj vse podatke pridobimo iz json datoteke
+
 package si.inova.zimskasola
 
 import android.util.Log
@@ -7,90 +9,95 @@ private const val COLLECTION_PATH = "locations"
 private const val SUB_COLLECTION_PATH = "places"
 private const val SUB_SUB_COLLECTION_PATH = "description_items"
 
-data class Location (
+data class Lokacija (
     var documentId: String = "",
     val address: String = "",
     val name: String = "",
-    var places: ArrayList<Places> = ArrayList()
+    var places: ArrayList<Prostor> = ArrayList()
 )
 
-data class Places (
+data class Prostor (
     var documentId: String = "",
     val floor: String = "",
     val image: String = "",
     val name: String = "",
-    var descriptionItems: ArrayList<DescriptionItems> = ArrayList()
+    var descriptionItems: ArrayList<Stvari> = ArrayList()
 )
 
-data class DescriptionItems (
+data class Stvari (
     val subtitle: String = "",
     val title: String = "",
     val type: String = "",
-    val type_icon: String = ""
+    var type_icon: String = ""
 )
 
-class FirestoreManager {
+class MrFirestore {
     private val db = FirebaseFirestore.getInstance()
 
-    var locations = ArrayList<Location>()
+    var locations = ArrayList<Lokacija>()
 
-    // get id, name and address for all locations
-    fun getLocations() {
+    var loadedPlaces = false
+    var loadedPlacesData = false
+
+    // saves all locations from firestore to locations arraylist (without subdocuments)
+    fun requestLocations() {
+        Log.d("FirestoreManager", "requesting locations")
         db.collection(COLLECTION_PATH)
             .addSnapshotListener { data, _ ->
                 if (data == null) {
                     return@addSnapshotListener
                 }
+                locations.clear()
                 for (document in data.documents) {
-                    val location = document.toObject(Location::class.java)!!
+                    val location = document.toObject(Lokacija::class.java)!!
                     location.documentId = document.id
                     locations.add(location)
                 }
-
+                loadedPlaces = true
                 Log.d("FirestoreManager", locations.toString())
             }
     }
 
-    // get places and description_items for a specific location
-    fun getLocationData(locationId: String) {
+    // saves all subdocuments from specific location into location in locations arraylist
+    fun requestLocationData(locationId: String) {
         val locationIndex = locations.indexOf(locations.single {
                 location -> location.documentId == locationId
         })
-
         db.collection("$COLLECTION_PATH/$locationId/$SUB_COLLECTION_PATH")
             .addSnapshotListener { data, _ ->
                 if (data == null) {
                     return@addSnapshotListener
                 }
+                locations[locationIndex].places.clear()
                 for (document in data.documents) {
-                    val place = document.toObject(Places::class.java)!!
+                    val place = document.toObject(Prostor::class.java)!!
                     place.documentId = document.id
                     locations[locationIndex].places.add(place)
 
-                    getDescriptionItems(locationIndex, locationId, place.documentId)
+                    requestDescriptionItems(locationIndex, locationId, place.documentId)
                 }
         }
     }
 
-    private fun getDescriptionItems(locationIndex: Int, locationId: String, placeId: String) {
+    private fun requestDescriptionItems(locationIndex: Int, locationId: String, placeId: String) {
         val placeIndex = locations[locationIndex].places.indexOf(
             locations[locationIndex].places.single {
                 place -> place.documentId == placeId
             }
         )
-
         db.collection("$COLLECTION_PATH/$locationId/$SUB_COLLECTION_PATH/$placeId/$SUB_SUB_COLLECTION_PATH")
             .addSnapshotListener {
             data, _ ->
                 if (data == null) {
                     return@addSnapshotListener
                 }
+                locations[locationIndex].places[placeIndex].descriptionItems.clear()
                 data.map {
                     locations[locationIndex].places[placeIndex].descriptionItems.add(
-                        it.toObject(DescriptionItems::class.java)
+                        it.toObject(Stvari::class.java)
                     )
                 }
-
+                loadedPlacesData = true
                 Log.d("FirestoreManager", locations.toString())
         }
     }

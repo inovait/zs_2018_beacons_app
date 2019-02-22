@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:id="@+id/nav_my_location"
+            android:icon="@drawable/ic_moja_lokacija"
+            android:title="@string/menu_my_location" />
+
+    <item
+            android:id="@+id/nav_all_locations"
+            android:icon="@drawable/ic_vsi_prostori"
+            android:title="@string/menu_all_locations" />
+
+    <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_moznosti"
+            android:title="@string/menu_settings" />
+</menu>

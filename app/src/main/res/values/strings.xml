@@ -1,9 +1,26 @@
 <resources>
     <string name="app_name">Zimska šola</string>
-    <string name="current_location">Trenutna lokacija:</string>
-    <string name="unknown_location">Neznana lokacija</string>
+
     <string name="login_header">Prijava</string>
     <string name="login_sub">Za uporabo aplikacije se moraš prijaviti.</string>
     <string name="login_google">Prijavi se</string>
     <string name="login_error">Prijava ni uspela, poskusi ponovno.</string>
+
+    <string name="tv_main_header">Beacons</string>
+
+    <string name="menu_my_location">Moja lokacija</string>
+    <string name="menu_all_locations">Vsi prostori</string>
+    <string name="menu_settings">Možnosti</string>
+
+    <string name="my_location_currently_in">Nahajaš se v</string>
+    <string name="my_location_location_name">Ime lokacije</string>
+    <string name="my_location_floor">Nadstropje</string>
+    
+    <string name="error_header">Ups, prišlo je do napake.</string>
+    <string name="error_sub">Preveri internetno povezavo in poskusi znova.</string>
+
+    <string name="tv_all_locations_header">Prostori</string>
+    <string name="tv_settings_beacons">Beacons</string>
+    <string name="tvSettingsOpis">Popularni časi tvojih obiskov tega prostora</string>
+    <string name="tvSettingsImeSobe">Soba</string>
 </resources>

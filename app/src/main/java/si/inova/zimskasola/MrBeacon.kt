@@ -5,10 +5,7 @@ import android.util.Log
 import com.google.android.gms.nearby.Nearby
 import com.google.android.gms.nearby.messages.*
 
-private const val LOG_TAG = "BeaconScanner"
-
-class BeaconScanner(private val context: Context,
-                    private val listener: Listener) : MessageListener() {
+class MrBeacon(private val context: Context, private val listener: Listener, private val activityMain: ActivityMain) : MessageListener() {
 
     fun start() {
         getClient(context).subscribe(this, buildOptions())
@@ -32,7 +29,7 @@ class BeaconScanner(private val context: Context,
     override fun onFound(message: Message) {
         super.onFound(message)
         String(message.content).let {
-            Log.d(LOG_TAG, "Beacon found: $it")
+            Log.d(TAG, "Beacon found: $it")
             listener.onBeaconFound(it)
         }
     }
@@ -40,7 +37,7 @@ class BeaconScanner(private val context: Context,
     override fun onLost(message: Message) {
         super.onLost(message)
         String(message.content).let {
-            Log.d(LOG_TAG, "Beacon lost: $it")
+            Log.d(TAG, "Beacon lost: $it")
             listener.onBeaconLost(it)
         }
     }

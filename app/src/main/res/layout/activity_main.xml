@@ -1,31 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                   xmlns:tools="http://schemas.android.com/tools"
-                                                   android:layout_width="match_parent"
-                                                   android:layout_height="match_parent"
-                                                   tools:context="si.inova.zimskasola.MainActivity">
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="si.inova.zimskasola.ActivityMain">
 
-    <TextView
-        android:id="@+id/tvCurrentLocation"
-        style="@style/CurrentLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="@string/current_location"
-        app:layout_constraintBottom_toTopOf="@+id/tvBeaconAttachment"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:id="@+id/constraintLayoutTop">
 
-    <TextView
-        android:id="@+id/tvBeaconAttachment"
-        style="@style/BeaconAttachment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/unknown_location"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+                android:text="Odjava"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/tvLogout" android:layout_weight="1"
+                android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textSize="15sp" android:fontFamily="@font/montserrat_medium" android:visibility="gone"/>
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/linearLayout2" android:gravity="center_horizontal" android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="12dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/tvMainHeader"
+                    android:fontFamily="@font/montserrat_extrabold" android:text="@string/tv_main_header"
+                    android:textAllCaps="true"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:id="@+id/tvMainSubHeader"
+                    android:fontFamily="@font/montserrat_medium"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp" app:layout_constraintTop_toBottomOf="@+id/constraintLayoutTop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/frameLayoutFragments"
+            app:layout_constraintBottom_toTopOf="@+id/divider"
+            android:background="@color/colorPrimary">
+    </FrameLayout>
+    <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/mainDivider"
+            app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+    />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="match_parent"
+            android:id="@+id/bottomNavigationView"
+            app:menu="@menu/main_menu"
+            android:theme="@style/Widget.MaterialComponents.BottomNavigationView"
+            app:itemIconSize="@dimen/menu_icon_size"
+            app:itemIconTint="@color/bvn_item_foreground"
+            app:itemTextColor="@color/bvn_item_foreground"
+            app:itemBackground="@color/colorTransparent"
+            android:layout_height="wrap_content"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

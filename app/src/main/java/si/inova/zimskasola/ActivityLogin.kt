@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginActivity : AppCompatActivity() {
+class ActivityLogin: AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
 
@@ -90,7 +90,7 @@ class LoginActivity : AppCompatActivity() {
     private fun updateUI(user: FirebaseUser?) {
         loginProgress.visibility = View.GONE
         if (user != null) {
-            val intent = Intent(applicationContext, MainActivity::class.java)
+            val intent = Intent(applicationContext, ActivityMain::class.java)
             startActivity(intent)
         } else {
             textViewHeader.visibility = View.VISIBLE
@@ -102,7 +102,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val TAG = "LoginActivity"
+        private const val TAG = "ActivityLogin"
         private const val RC_SIGN_IN = 1337
     }
 }

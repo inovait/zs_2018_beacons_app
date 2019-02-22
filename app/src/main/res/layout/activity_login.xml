@@ -38,31 +38,27 @@
     <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:id="@+id/btnGoogleLogin"
             android:gravity="center_vertical"
             android:background="@drawable/background_google_login"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" >
+            app:layout_constraintTop_toTopOf="parent">
 
         <ImageView android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
                    android:src="@drawable/google"
-                   android:layout_marginLeft="60dp"
-                   android:layout_marginTop="17dp"
-                   android:layout_marginBottom="17dp"/>
+                   android:layout_marginLeft="68dp"/>
 
         <TextView
                 android:text="@string/login_google"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView3"
-                android:layout_marginEnd="60dp"
+                android:layout_marginEnd="68dp"
                 android:layout_marginStart="20dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"
                 android:textSize="15sp"
                 android:textAllCaps="true"
                 android:textStyle="bold"
@@ -71,7 +67,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" />
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
     </LinearLayout>
 

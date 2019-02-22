@@ -13,7 +13,7 @@
         <ImageView
                 android:src="@drawable/moja_lokacija_privzeta_slika"
                 android:id="@+id/recycler_img"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="32dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginBottom="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -33,7 +33,8 @@
                 app:layout_constraintBottom_toTopOf="@+id/recycler_tv_mid"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/recycler_img" android:textColor="@color/colorPrimaryDark"
-                android:fontFamily="@font/montserrat_bold"/>
+                android:fontFamily="@font/montserrat_bold" app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="24dp"/>
 
         <TextView
                 android:layout_width="0dp"
@@ -60,6 +61,14 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" android:textColor="@color/colorPrimaryDark"
                 android:fontFamily="@font/montserrat_regular"/>
+        <View
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/mainDivider"
+                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
